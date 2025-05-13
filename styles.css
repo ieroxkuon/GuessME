@@ -8,15 +8,55 @@ body {
     transition: background-image 0.5s ease;
 }
 
-/* Random background classes */
-.bg-image-1 {
-    background-image: url('https://w.wallhaven.cc/full/6d/wallhaven-6d3zkl.jpg');
+/* Morning background classes */
+.bg-morning-1 {
+    background-image: url('https://w.wallhaven.cc/full/l8/wallhaven-l8lpxp.jpg');
 }
-.bg-image-2 {
+.bg-morning-2 {
+    background-image: url('https://w.wallhaven.cc/full/rr/wallhaven-rrvegq.png');
+}
+.bg-morning-3 {
+    background-image: url('https://w.wallhaven.cc/full/jx/wallhaven-jxmwvm.png');
+}
+.bg-morning-4 {
     background-image: url('https://w.wallhaven.cc/full/85/wallhaven-85qzgj.jpg');
 }
-.bg-image-3 {
-    background-image: url('https://w.wallhaven.cc/full/jx/wallhaven-jxmwvm.png');
+.bg-morning-5 {
+    background-image: url('https://images.pexels.com/photos/16672664/pexels-photo-16672664/free-photo-of-a-sunrise-over-a-valley-with-fog-and-hills.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+}
+
+/* Afternoon background classes */
+.bg-afternoon-1 {
+    background-image: url('https://w.wallhaven.cc/full/zp/wallhaven-zpgp6j.jpg');
+}
+.bg-afternoon-2 {
+    background-image: url('https://w.wallhaven.cc/full/o5/wallhaven-o5p5j9.jpg');
+}
+.bg-afternoon-3 {
+    background-image: url('https://w.wallhaven.cc/full/ly/wallhaven-ly9kjl.png');
+}
+.bg-afternoon-4 {
+    background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lm5jd.jpg');
+}
+.bg-afternoon-5 {
+    background-image: url('https://w.wallhaven.cc/full/jx/wallhaven-jx79o5.png');
+}
+
+/* Night background classes */
+.bg-night-1 {
+    background-image: url('https://w.wallhaven.cc/full/zy/wallhaven-zyw5og.jpg');
+}
+.bg-night-2 {
+    background-image: url('https://w.wallhaven.cc/full/5g/wallhaven-5gx7l3.png');
+}
+.bg-night-3 {
+    background-image: url('https://w.wallhaven.cc/full/vq/wallhaven-vqjjp8.jpg');
+}
+.bg-night-4 {
+    background-image: url('https://w.wallhaven.cc/full/5g/wallhaven-5g9wj1.jpg');
+}
+.bg-night-5 {
+    background-image: url('https://w.wallhaven.cc/full/ex/wallhaven-exl88k.png');
 }
 
 /* Time-based theme classes */

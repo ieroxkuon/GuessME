@@ -41,11 +41,56 @@
         </button>
     </div>
     <script>
-        // Random background selection
-        const backgrounds = ['bg-image-1', 'bg-image-2', 'bg-image-3'];
-        const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    // Time-based background arrays
+    const morningBackgrounds = [
+        'bg-morning-1',
+        'bg-morning-2',
+        'bg-morning-3',
+        'bg-morning-4',
+        'bg-morning-5'
+    ];
+    const afternoonBackgrounds = [
+        'bg-afternoon-1',
+        'bg-afternoon-2',
+        'bg-afternoon-3',
+        'bg-afternoon-4',
+        'bg-afternoon-5'
+    ];
+    const nightBackgrounds = [
+        'bg-night-1',
+        'bg-night-2',
+        'bg-night-3',
+        'bg-night-4',
+        'bg-night-5'
+    ];
+
+    // Function to select background based on time
+    function setTimeBasedBackground() {
+        const hour = new Date().getHours();
+        let selectedBackgrounds;
+
+        if (hour >= 5 && hour < 12) {
+            // Morning: 5 AM - 11:59 AM
+            selectedBackgrounds = morningBackgrounds;
+            document.body.classList.add('bg-morning');
+        } else if (hour >= 12 && hour < 18) {
+            // Afternoon: 12 PM - 5:59 PM
+            selectedBackgrounds = afternoonBackgrounds;
+            document.body.classList.add('bg-afternoon');
+        } else {
+            // Night: 6 PM - 4:59 AM
+            selectedBackgrounds = nightBackgrounds;
+            document.body.classList.add('bg-evening');
+        }
+
+        // Select a random background from the appropriate array
+        const randomBg = selectedBackgrounds[Math.floor(Math.random() * selectedBackgrounds.length)];
         document.body.classList.add(randomBg);
-    </script>
+    }
+
+    // Call the function to set the background
+    setTimeBasedBackground();
+</script>
     <script src="script.js"></script>
 </body>
 </html>
