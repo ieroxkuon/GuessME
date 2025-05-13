@@ -67,18 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingSpinner.classList.add("hidden");
     }
 
-    // Chia sẻ gợi ý
-    shareBtn.addEventListener("click", () => {
-        if (navigator.share) {
-            navigator.share({
-                title: "Hôm nay làm gì?",
-                text: `Hôm nay tôi sẽ: ${suggestionElement.textContent}`,
-                url: window.location.href
-            }).catch(err => console.error("Lỗi chia sẻ:", err));
-        } else {
-            alert("Trình duyệt không hỗ trợ chia sẻ. Bạn có thể sao chép gợi ý!");
-        }
-    });
 
     // Chuyển đổi chế độ tối
     darkModeToggle.addEventListener("click", () => {
