@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen flex items-center justify-center transition-colors duration-500 bg-morning">
+<body class="min-h-screen flex items-center justify-center transition-colors duration-500">
     <!-- Main Container -->
     <div class="bg-white bg-opacity-90 p-6 sm:p-8 rounded-2xl shadow-2xl text-center max-w-md w-full backdrop-blur-md transition-all duration-300">
         <!-- Greeting -->
@@ -41,6 +41,12 @@
             </svg>
         </button>
     </div>
+    <script>
+        // Random background selection
+        const backgrounds = ['bg-image-1', 'bg-image-2', 'bg-image-3', 'bg-image-4'];
+        const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        document.body.classList.add(randomBg);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
