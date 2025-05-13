@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingSpinner = document.getElementById("loadingSpinner");
     const body = document.body;
 
-    // Danh sách hoạt động thư giãn
+    // Danh sách hoạt động thư giãn cho sinh viên 20-25 tuổi, dùng Facebook, YouTube, Discord, Google, Spotify, app vẽ, Steam, thích anime và văn hóa Nhật
     const activities = [
         "Xem vlog YouTube thư giãn",
         "Vẽ tranh trên app",
@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Lướt bài cosplay Facebook",
         "Pha trà hoa nhài",
         "Ăn thạch trái cây",
+        // 60 new activities
         "Xem opening anime YouTube",
         "Vẽ cảnh anime app",
         "Lướt ảnh cosplay Facebook",
@@ -212,32 +213,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Weather Fetching
-    const weatherWidget = document.querySelector("#weatherWidget");
-    const apiKey = "60b0126e9ffbc27a747b2c03af299d58"; // Thay bằng khóa API của bạn
-    const city = "Hanoi";
-    const units = "metric";
+const weatherWidget = document.querySelector("#weatherWidget");
+const apiKey = "60b0126e9ffbc27a747b2c03af299d58"; // Replace with your API key
+const city = "Hanoi";
+const units = "metric";
 
-    async function fetchWeather() {
-        try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}&lang=vi`);
-            const data = await response.json();
+async function fetchWeather() {
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}& lang=vi`);
+        const data = await response.json();
 
-            const temp = Math.round(data.main.temp);
-            const condition = data.weather[0].description;
-            const iconCode = data.weather[0].icon;
-            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        const temp = Math.round(data.main.temp);
+        const condition = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-            weatherWidget.innerHTML = `
-                <img src="${iconUrl}" alt="${condition}" class="w-6 h-6">
-                <span>${city}: ${temp}°C, ${condition}</span>
-            `;
-        } catch (error) {
-            weatherWidget.innerHTML = `<span>Không lấy được thời tiết 😥</span>`;
-            console.error("Weather fetch error:", error);
-        }
+        weatherWidget.innerHTML = `
+            <img src="${iconUrl}" alt="${condition}" class="w-6 h-6">
+            <span>${city}: ${temp}°C, ${condition}</span>
+        `;
+    } catch (error) {
+        weatherWidget.innerHTML = `<span>Không lấy được thời tiết 😥</span>`;
+        console.error("Weather fetch error:", error);
     }
+}
 
-    fetchWeather();
+fetchWeather();
 
     // Lấy gợi ý ngẫu nhiên
     async function getRandomSuggestion() {
@@ -264,8 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Khôi phục chế độ tối
     if (localStorage.getItem("darkMode") === "true") {
         document.documentElement.classList.add("dark");
-    } else {
-        document.documentElement.classList.remove("dark");
     }
 
     // Cập nhật khi tải trang
