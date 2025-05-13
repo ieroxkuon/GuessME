@@ -9,13 +9,13 @@ body {
 }
 
 /* Random background classes */
-.bg-image-2 {
+.bg-image-1 {
     background-image: url('https://w.wallhaven.cc/full/6d/wallhaven-6d3zkl.jpg');
 }
-.bg-image-3 {
+.bg-image-2 {
     background-image: url('https://w.wallhaven.cc/full/85/wallhaven-85qzgj.jpg');
 }
-.bg-image-4 {
+.bg-image-3 {
     background-image: url('https://w.wallhaven.cc/full/jx/wallhaven-jxmwvm.png');
 }
 
