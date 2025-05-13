@@ -79,31 +79,31 @@ body {
     color: #1f2937;
 }
 .dark .text-gray-800 {
-    color: #f3f4f6; /* Light gray for dark mode */
+    color: #f3f4f6;
 }
 .text-gray-600 {
     color: #4b5563;
 }
 .dark .text-gray-600 {
-    color: #d1d5db; /* Lighter gray for dark mode */
+    color: #d1d5db;
 }
 .text-gray-700 {
     color: #374151;
 }
 .dark .text-gray-700 {
-    color: #e5e7eb; /* Light gray for dark mode */
-}
-.text-gray-300 {
-    color: #d1d5db;
-}
-.dark .text-gray-300 {
-    color: #d1d5db; /* Already light, no change needed */
-}
-.text-gray-200 {
     color: #e5e7eb;
 }
+.text-gray-300 {
+    color: #374151;
+}
+.dark .text-gray-300 {
+    color: #e5e7eb;
+}
+.text-gray-200 {
+    color: #374151;
+}
 .dark .text-gray-200 {
-    color: #e5e7eb; /* Already light, no change needed */
+    color: #e5e7eb;
 }
 
 /* Weather and toggle text */
@@ -114,16 +114,16 @@ body {
     background: rgba(55, 65, 81, 0.8);
 }
 .bg-gray-700 {
-    background: rgba(55, 65, 81, 0.8);
+    background: rgba(243, 244, 246, 0.8);
 }
 .dark .bg-gray-700 {
     background: rgba(55, 65, 81, 0.8);
 }
 .text-gray-600:not(.dark) {
-    color: #4b5563;
+    color: #e5e7eb;
 }
 .dark .text-gray-600 {
-    color: #e5e7eb; /* Light gray for weather text */
+    color: #4b5563;
 }
 
 /* Animations */
@@ -167,13 +167,4 @@ body {
     .text-lg.sm\:text-xl {
         font-size: 1rem;
     }
-}
-/* Màu chữ mặc định theo theme */
-body {
-    color: #1f2937; /* dark:text-white không còn cần */
-    font-family: 'Roboto', sans-serif;
-}
-
-.dark body {
-    color: #ffffff;
 }
