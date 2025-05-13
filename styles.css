@@ -38,10 +38,6 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.dark .bg-white.bg-opacity-90 {
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(55, 65, 81, 0.85));
-    border: 1px solid rgba(75, 85, 99, 0.3);
-}
 
 /* Button styling */
 .bg-blue-600 {
@@ -53,77 +49,31 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
-.dark .bg-blue-600 {
-    background: linear-gradient(90deg, #1e40af, #3b82f6);
-}
-.dark .bg-blue-600:hover {
-    background: linear-gradient(90deg, #1e3a8a, #2563eb);
-}
 
 /* Weather and toggle corner */
 .fixed.bottom-4.right-4 {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.80);
     backdrop-filter: blur(8px);
     border-radius: 0.75rem;
     padding: 0.5rem;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.75);
 }
-.dark .fixed.bottom-4.right-4 {
-    background: rgba(31, 41, 55, 0.95);
-    border: 1px solid rgba(75, 85, 99, 0.3);
-}
 
 /* Text colors for contrast */
 .text-gray-800 {
     color: #1f2937;
 }
-.dark .text-gray-800 {
-    color: #f3f4f6;
-}
 .text-gray-600 {
     color: #4b5563;
 }
-.dark .text-gray-600 {
-    color: #d1d5db;
-}
 .text-gray-700 {
     color: #374151;
-}
-.dark .text-gray-700 {
-    color: #e5e7eb;
-}
-.text-gray-300 {
-    color: #374151;
-}
-.dark .text-gray-300 {
-    color: #e5e7eb;
-}
-.text-gray-200 {
-    color: #374151;
-}
-.dark .text-gray-200 {
-    color: #e5e7eb;
 }
 
 /* Weather and toggle text */
 .bg-gray-100 {
     background: rgba(243, 244, 246, 0.8);
-}
-.dark .bg-gray-100 {
-    background: rgba(55, 65, 81, 0.8);
-}
-.bg-gray-700 {
-    background: rgba(243, 244, 246, 0.8);
-}
-.dark .bg-gray-700 {
-    background: rgba(55, 65, 81, 0.8);
-}
-.text-gray-600:not(.dark) {
-    color: #e5e7eb;
-}
-.dark .text-gray-600 {
-    color: #4b5563;
 }
 
 /* Animations */
@@ -140,7 +90,7 @@ body {
 }
 @keyframes pulseSlow {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); } /* Reduced scale to minimize blur */
+    50% { transform: scale(1.02); }
 }
 
 .spinner {

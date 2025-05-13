@@ -211,6 +211,34 @@ document.addEventListener("DOMContentLoaded", () => {
             body.classList.add("bg-evening");
         }
     }
+    
+    // Weather Fetching
+const weatherWidget = document.querySelector("#weatherWidget");
+const apiKey = "60b0126e9ffbc27a747b2c03af299d58"; // Replace with your API key
+const city = "Hanoi";
+const units = "metric";
+
+async function fetchWeather() {
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}& lang=vi`);
+        const data = await response.json();
+
+        const temp = Math.round(data.main.temp);
+        const condition = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+        weatherWidget.innerHTML = `
+            <img src="${iconUrl}" alt="${condition}" class="w-6 h-6">
+            <span>${city}: ${temp}°C, ${condition}</span>
+        `;
+    } catch (error) {
+        weatherWidget.innerHTML = `<span>Không lấy được thời tiết 😥</span>`;
+        console.error("Weather fetch error:", error);
+    }
+}
+
+fetchWeather();
 
     // Lấy gợi ý ngẫu nhiên
     async function getRandomSuggestion() {

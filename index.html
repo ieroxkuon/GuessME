@@ -14,15 +14,15 @@
     <!-- Main Container -->
     <div class="bg-white bg-opacity-90 p-6 sm:p-8 rounded-2xl shadow-2xl text-center max-w-md w-full backdrop-blur-md transition-all duration-300">
         <!-- Greeting -->
-        <h1 id="greeting" class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-2">Chào buổi sáng!</h1>
-        <p class="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-6">Hôm nay bạn muốn thư giãn thế nào?</p>
+        <h1 id="greeting" class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Chào buổi sáng!</h1>
+        <p class="text-base sm:text-lg text-gray-600 mb-6">Hôm nay bạn muốn thư giãn thế nào?</p>
 
         <!-- Suggestion Button -->
         <button id="suggestBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg mb-6 transform transition-transform hover:scale-105">Gợi ý ngay!</button>
         
         <!-- Suggestion Area -->
         <div class="flex items-center justify-center min-h-[2.5rem]">
-            <p id="suggestion" class="text-lg sm:text-xl font-medium text-gray-800 dark:text-gray-100 animate-fade-in"></p>
+            <p id="suggestion" class="text-lg sm:text-xl font-medium text-gray-700 animate-fade-in"></p>
             <span id="loadingSpinner" class="spinner hidden ml-2"></span>
         </div>
     </div>
@@ -30,12 +30,12 @@
     <!-- Bottom-Right Corner Container -->
     <div class="fixed bottom-4 right-4 flex flex-row items-center space-x-2">
         <!-- Weather Widget -->
-        <div class="bg-gray-100 dark:bg-gray-700 bg-opacity-80 p-2 rounded-lg text-sm flex items-center space-x-2">
+        <div id="weatherWidget" class="bg-gray-100 bg-opacity-80 p-2 rounded-lg text-sm flex items-center space-x-2">
             <span>🌧️</span>
             <span>Hà Nội: 25°C, Mưa nhẹ</span>
         </div>
-        <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle" class="bg-gray-100 dark:bg-gray-700 bg-opacity-80 p-2 rounded-lg text-gray-600 dark:text-gray-100 hover:text-gray-800 dark:hover:text-white">
+        <!-- Dark Mode Toggle (Non-functional) -->
+        <button id="darkModeToggle" class="bg-gray-100 bg-opacity-80 p-2 rounded-lg text-gray-600 hover:text-gray-800">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
             </svg>
@@ -48,33 +48,5 @@
         document.body.classList.add(randomBg);
     </script>
     <script src="script.js"></script>
-    <script>
-    const weatherContainer = document.getElementById("weatherContainer");
-    const apiKey = "60b0126e9ffbc27a747b2c03af299d58"; // 🔁 Thay bằng API key của bạn
-    const city = "Hanoi";
-    const units = "metric";
-
-    async function fetchWeather() {
-        try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}&lang=vi`);
-            const data = await response.json();
-
-            const temp = Math.round(data.main.temp);
-            const condition = data.weather[0].description;
-            const iconCode = data.weather[0].icon;
-            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
-            weatherContainer.innerHTML = `
-                <img src="${iconUrl}" alt="${condition}" class="w-6 h-6">
-                <span>${city}: ${temp}°C, ${condition}</span>
-            `;
-        } catch (error) {
-            weatherContainer.innerHTML = `<span>Không lấy được thời tiết 😥</span>`;
-            console.error("Weather fetch error:", error);
-        }
-    }
-
-    fetchWeather();
-</script>
 </body>
 </html>
