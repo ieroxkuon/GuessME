@@ -3,35 +3,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const suggestionElement = document.getElementById("suggestion");
     const suggestBtn = document.getElementById("suggestBtn");
     const shareBtn = document.getElementById("shareBtn");
-    const historyList = document.getElementById("historyList");
-    const activityType = document.getElementById("activityType");
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const loadingSpinner = document.getElementById("loadingSpinner");
     const body = document.body;
 
-    // Danh sách hoạt động thư giãn, đơn giản
+    // Danh sách hoạt động thư giãn, giải trí cho người 20-25 tuổi
     const activities = [
-        { text: "Nghe một playlist nhạc thư giãn", type: "indoor" },
-        { text: "Đi dạo trong công viên gần nhà", type: "outdoor" },
-        { text: "Vẽ một bức tranh doodle đơn giản", type: "creative" },
-        { text: "Đọc một chương sách yêu thích", type: "indoor" },
-        { text: "Tập yoga nhẹ nhàng 10 phút", type: "indoor" },
-        { text: "Tưới cây hoặc chăm sóc vườn nhỏ", type: "outdoor" },
-        { text: "Viết nhật ký về một điều vui hôm nay", type: "creative" },
-        { text: "Xem một tập phim sitcom ngắn", type: "indoor" },
-        { text: "Nấu một món ăn nhẹ như bánh mì kẹp", type: "indoor" },
-        { text: "Chụp ảnh phong cảnh hoàng hôn", type: "outdoor" },
-        { text: "Thiền định 5 phút để thư giãn", type: "indoor" },
-        { text: "Sắp xếp lại góc bàn làm việc", type: "indoor" },
-        { text: "Đi bộ quanh khu phố và nghe podcast", type: "outdoor" },
-        { text: "Tạo một playlist nhạc mới", type: "creative" },
-        { text: "Làm một cốc trà hoặc cà phê và thưởng thức", type: "indoor" },
-        { text: "Ngắm sao trên bầu trời đêm", type: "outdoor" },
-        { text: "Vẽ mandala để thư giãn", type: "creative" },
-        { text: "Gọi điện trò chuyện với bạn thân", type: "indoor" },
-        { text: "Tập hít thở sâu trong 5 phút", type: "indoor" },
-        { text: "Đi chợ và mua một bó hoa tươi", type: "outdoor" }
+        "Xem một tập phim trên Netflix hoặc YouTube",
+        "Chơi một ván game mobile ngắn",
+        "Nghe podcast về chủ đề bạn yêu thích",
+        "Tập một bài workout ngắn tại nhà",
+        "Lướt TikTok hoặc Instagram để giải trí",
+        "Đi dạo công viên và chụp ảnh aesthetic",
+        "Thử một quán cà phê mới trong khu phố",
+        "Đạp xe quanh khu vực gần nhà",
+        "Tham gia một buổi chạy bộ nhẹ với bạn bè",
+        "Ghé thăm một cửa hàng sách cũ",
+        "Tạo một video TikTok hoặc Reels sáng tạo",
+        "Vẽ hoặc tô màu trên ứng dụng kỹ thuật số",
+        "Thử viết một bài thơ hoặc câu chuyện ngắn",
+        "Tự làm một món đồ thủ công đơn giản",
+        "Học một điệu nhảy ngắn qua YouTube",
+        "Hẹn bạn bè đi ăn tối và trò chuyện",
+        "Tổ chức một buổi chơi board game với bạn bè",
+        "Tham gia một sự kiện cộng đồng gần nhà",
+        "Chat video với một người bạn lâu không gặp",
+        "Cùng bạn bè thử một trò chơi nhóm online"
     ];
-
-    let history = [];
 
     // Cập nhật lời chào và chủ đề theo thời gian
     function updateGreetingAndTheme() {
@@ -51,39 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Lấy gợi ý ngẫu nhiên theo bộ lọc
-    function getRandomSuggestion() {
-        const selectedType = activityType.value;
-        const filteredActivities = selectedType === "all" 
-            ? activities 
-            : activities.filter(activity => activity.type === selectedType);
-        
-        if (filteredActivities.length === 0) {
-            suggestionElement.textContent = "Không có hoạt động nào phù hợp!";
-            shareBtn.classList.add("hidden");
-            return;
-        }
+    // Lấy gợi ý ngẫu nhiên
+    async function getRandomSuggestion() {
+        suggestBtn.disabled = true;
+        loadingSpinner.classList.remove("hidden");
+        suggestionElement.textContent = "";
+        shareBtn.classList.add("hidden");
 
-        const randomIndex = Math.floor(Math.random() * filteredActivities.length);
-        const suggestion = filteredActivities[randomIndex].text;
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Giả lập loading
+
+        const randomIndex = Math.floor(Math.random() * activities.length);
+        const suggestion = activities[randomIndex];
         suggestionElement.textContent = suggestion;
         shareBtn.classList.remove("hidden");
 
-        // Cập nhật lịch sử
-        history.unshift(suggestion);
-        if (history.length > 5) history.pop();
-        updateHistory();
-    }
-
-    // Cập nhật danh sách lịch sử
-    function updateHistory() {
-        historyList.innerHTML = "";
-        history.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = item;
-            li.classList.add("animate-fade-in");
-            historyList.appendChild(li);
-        });
+        suggestBtn.disabled = false;
+        loadingSpinner.classList.add("hidden");
     }
 
     // Chia sẻ gợi ý
@@ -99,13 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Chuyển đổi chế độ tối
+    darkModeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem("darkMode", document.documentElement.classList.contains("dark"));
+    });
+
+    // Khôi phục chế độ tối
+    if (localStorage.getItem("darkMode") === "true") {
+        document.documentElement.classList.add("dark");
+    }
+
     // Cập nhật khi tải trang
     updateGreetingAndTheme();
     
     // Xử lý sự kiện
     suggestBtn.addEventListener("click", getRandomSuggestion);
-    activityType.addEventListener("change", () => {
-        suggestionElement.textContent = "";
-        shareBtn.classList.add("hidden");
-    });
 });
