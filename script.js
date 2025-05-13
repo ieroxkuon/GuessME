@@ -285,11 +285,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cập nhật lời chào và chủ đề theo thời gian
     function updateGreetingAndTheme() {
         const hour = new Date().getHours();
-        if (hour < 12) {
+        if (hour >= 5 && hour < 12) {
             greetingElement.textContent = "Chào buổi sáng!";
             body.classList.remove("bg-afternoon", "bg-evening");
             body.classList.add("bg-morning");
-        } else if (hour < 18) {
+        } else if (hour >= 12 && hour < 18) {
             greetingElement.textContent = "Chào buổi chiều!";
             body.classList.remove("bg-morning", "bg-evening");
             body.classList.add("bg-afternoon");
@@ -308,7 +308,7 @@ const units = "metric";
 
 async function fetchWeather() {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}& lang=vi`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}&lang=vi`);
         const data = await response.json();
 
         const temp = Math.round(data.main.temp);
