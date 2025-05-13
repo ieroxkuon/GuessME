@@ -168,3 +168,12 @@ body {
         font-size: 1rem;
     }
 }
+/* Màu chữ mặc định theo theme */
+body {
+    color: #1f2937; /* dark:text-white không còn cần */
+    font-family: 'Roboto', sans-serif;
+}
+
+.dark body {
+    color: #ffffff;
+}
